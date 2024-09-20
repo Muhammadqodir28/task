@@ -35,14 +35,8 @@ class ApplicationCreated extends Mailable
 
     public function attachments(): array
     {
-        // $file_for_mail = Attachment::fromStorageDisk('public', $this->application->file_url);
-
-        // if(!is_null($this->application->file_url)) {
-        //     $file_for_mail;
-        // }
-
         return [
-            // $file_for_mail
+            Attachment::fromStorageDisk('public', $this->application->file_url)
         ];
     }
 }
