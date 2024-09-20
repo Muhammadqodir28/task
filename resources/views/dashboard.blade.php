@@ -47,6 +47,19 @@
                                             @endif
                                         </div>
                                     </div>
+                                    @if ($application->answer()->exists())
+                                        <div class="mt-2">
+                                            <hr>
+                                            <h5 class="font-semibold">Answer:</h5>
+                                            <p class="text-slate-600 leading-normal font-light"> {{ $application->answer->body }} </p>
+                                        </div>
+                                    @else
+                                        <div class="flex justify-center cursor-pointer">
+                                            <a href="{{ route('answers.create', ['application' => $application->id]) }}" class="bg-green-500 text-white px-3 py-1 rounded font-medium mx-3 hover:bg-green-600 transition duration-200 each-in-out">
+                                                Answer
+                                            </a>
+                                        </div>
+                                    @endif
                                 </div>
                             @endforeach
                             {{ $applications->links() }}
